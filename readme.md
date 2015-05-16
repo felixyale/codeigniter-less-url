@@ -10,11 +10,15 @@ CodeIgniter-less-url is an less assets helper for CodeIgniter Framework, a toolk
 
 ### How to use it
 
+```
 <link rel="stylesheet" type="text/css" href="<?php echo less_url('css/main.less'); ?>" media="all">
+```
 
 will be produced to
 
+```
 <link rel="stylesheet" type="text/css" href="http://domain/less?path=css/main.less" media="all">
+```
 
 ### Server Requirements
 
