@@ -43,9 +43,9 @@ if (!function_exists('less_url')) {
         }
         
         if ($group) {
-            return $CI->config->base_url($dir . 'less?path=' . $group . '/' . $uri);
+            return $CI->config->base_url($dir . 'less.php?path=' . $group . '/' . $uri);
         } else {
-            return $CI->config->base_url($dir . 'less?path=' . $uri);
+            return $CI->config->base_url($dir . 'less.php?path=' . $uri);
         }
     }
 }

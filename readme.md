@@ -2,6 +2,8 @@
 
 CodeIgniter-less-url is an less assets helper for CodeIgniter Framework, a toolkit for people wants to use lesscss width CodeIgniter. It'll comiple your .less file while your edit it and access it. It integrated with lessc.inc.php.
 
+- CodeIgniter-less-url is a develop mode solution, you can precompile your static file before release.
+
 ### lesscss && CodeIgniter
 
 -  [lesscss.org](http://lesscss.org)
@@ -17,7 +19,7 @@ CodeIgniter-less-url is an less assets helper for CodeIgniter Framework, a toolk
 will be produced to
 
 ```
-<link rel="stylesheet" type="text/css" href="http://domain/less?path=css/main.less" media="all">
+<link rel="stylesheet" type="text/css" href="http://domain/less.php?path=css/main.less" media="all">
 ```
 
 ### Server Requirements

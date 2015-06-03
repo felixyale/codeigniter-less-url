@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo less_url('css/main.less'); ?>" media="all">
 </head>
 <body>
-	<h1>Welcome!</h1>
+	<h1>Codeigniter less url</h1>
 	<ul class="red">
 		<li>line one</li>
 		<li>line two</li>

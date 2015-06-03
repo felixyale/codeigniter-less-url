@@ -1,11 +1,24 @@
 <?php
+define('BASEPATH','');
 require "lessc.inc.php";
 
 header('Content-Type: text/css');
 
-$filename = "assets/" . ltrim($path);
+$path = $_GET['path'];
 
-if (file_exists($filename)) {	
+$filename = 'assets/' . ltrim($path, '/');
+
+//information about a file path
+$path_parts = pathinfo($filename);
+
+
+if ($path_parts['extension'] != 'less') {
+	echo "/**\n * invalid file extension \n */";
+	http_response_code(500);
+	exit();
+}
+
+if (file_exists($filename)) {
 	// $last_modified_time = filemtime($filename);
 	// $etag = md5_file($filename);
 	//
@@ -20,15 +33,23 @@ if (file_exists($filename)) {
 	// 	}
 	// }
 
-	echo "/**\n  " . $path . "\n*/\n\n";
+	echo "/**\n * " . $path . "\n */\n\n";
 
 	$less = new lessc;
 
 	$less->setPreserveComments(true);
 
-	echo $less->compileFile($filename);
+	$file = $less->compileFile($filename);
+
+	//relative url
+	$file = preg_replace('/url\s*\((\'|\")*/', '$0' . $path_parts['dirname'] . '/', $file);
+
+	echo $file;
 } else {
 
-	echo "/**\n  file \"" . $filename . "\" not exists \n*/";
+	echo "/**\n * file \"" . $filename . "\" not exists \n */";
 
+	http_response_code(404);
+
+	exit();
 }
